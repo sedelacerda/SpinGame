@@ -3,6 +3,7 @@ package com.mitodevelops.spingame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.mitodevelops.spingame.actors.SpinnerActor;
 import com.mitodevelops.spingame.actors.UserActor;
 
 /**
@@ -13,16 +14,19 @@ public class InputActionsProcessor extends InputAdapter {
 
     private Stage stage;
     private UserActor userActor;
+    private SpinnerActor spinnerActor;
 
-    public InputActionsProcessor(Stage stage, UserActor userActor) {
+    public InputActionsProcessor(Stage stage, UserActor userActor, SpinnerActor spinnerActor) {
         this.stage = stage;
         this.userActor = userActor;
+        this.spinnerActor = spinnerActor;
     }
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         userActor.setPosition(screenX, Gdx.graphics.getHeight() - screenY);
         stage.addActor(userActor);
+        System.out.println("User: x=" + userActor.getBounds() + "\nSpinner: x=" + spinnerActor.getBounds());
         return true;
     }
 

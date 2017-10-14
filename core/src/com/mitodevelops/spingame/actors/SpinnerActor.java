@@ -19,7 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 public class SpinnerActor extends Actor {
 
     private ShapeRenderer bar;
-    private ShapeRenderer boundsRenderer;
     private int screenWidth, screenHeight;
     private float barWidth;
 
@@ -47,7 +46,6 @@ public class SpinnerActor extends Actor {
         this.angularVelocity = 140.0f;
         this.currentRotation = 0.0f;
         this.bounds = new Polygon();
-        this.boundsRenderer = boundsRenderer;
         setSize(barWidth, radius);
         setPosition(centerX - barWidth/2, centerY);
         setBounds(centerX, centerY, getWidth(), getHeight());

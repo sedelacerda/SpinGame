@@ -38,7 +38,7 @@ public class MainGameScreen extends BaseScreen {
 
         userActor = new UserActor(touchArea);
         //stage.addActor(userActor);
-        inputProcessor = new InputActionsProcessor(stage, userActor);
+        inputProcessor = new InputActionsProcessor(stage, userActor, spinnerActor);
 
         Gdx.input.setInputProcessor(inputProcessor);
     }

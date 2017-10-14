@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.CircleShape;
 import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.MassData;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
@@ -40,19 +41,13 @@ public class Box2DScreen extends BaseScreen {
 
         createPlayerFixture(playerBody);
         createSpinnerFixture(spinnerBody);
-    }
 
-    private Fixture createSpinnerFixture(Body spinnerBody) {
-        PolygonShape shape = new PolygonShape();
-        shape.setAsBox(0.5f, 30);
-        spinnerFixture = spinnerBody.createFixture(shape, 1);
-        shape.dispose();
-        return spinnerFixture;
+        spinnerBody.setAngularVelocity(2);
     }
 
     private BodyDef createPlayerBodyDef() {
         BodyDef def = new BodyDef();
-        def.position.set(0, 0);
+        def.position.set(0, 10);
         def.type = BodyDef.BodyType.StaticBody;
         return def;
     }
@@ -67,9 +62,17 @@ public class Box2DScreen extends BaseScreen {
 
     private BodyDef createSpinnerBodyDef() {
         BodyDef def = new BodyDef();
-        def.position.set(0, 30);
-        def.type = BodyDef.BodyType.StaticBody;
+        def.position.set(0, 0);
+        def.type = BodyDef.BodyType.KinematicBody;
         return def;
+    }
+
+    private Fixture createSpinnerFixture(Body spinnerBody) {
+        PolygonShape shape = new PolygonShape();
+        shape.setAsBox(0.5f, 20, new Vector2(0, -20), 0);
+        spinnerFixture = spinnerBody.createFixture(shape, 1);
+        shape.dispose();
+        return spinnerFixture;
     }
 
     @Override

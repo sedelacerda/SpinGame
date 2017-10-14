@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputAdapter;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mitodevelops.spingame.actors.SpinnerActor;
-import com.mitodevelops.spingame.actors.UserActor;
+import com.mitodevelops.spingame.actors.PlayerActor;
 
 /**
  * Created by seba on 02-10-17.
@@ -13,10 +13,10 @@ import com.mitodevelops.spingame.actors.UserActor;
 public class InputActionsProcessor extends InputAdapter {
 
     private Stage stage;
-    private UserActor userActor;
+    private PlayerActor userActor;
     private SpinnerActor spinnerActor;
 
-    public InputActionsProcessor(Stage stage, UserActor userActor, SpinnerActor spinnerActor) {
+    public InputActionsProcessor(Stage stage, PlayerActor userActor, SpinnerActor spinnerActor) {
         this.stage = stage;
         this.userActor = userActor;
         this.spinnerActor = spinnerActor;

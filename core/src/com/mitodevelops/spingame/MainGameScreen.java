@@ -3,10 +3,9 @@ package com.mitodevelops.spingame;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.math.Intersector;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.mitodevelops.spingame.actors.SpinnerActor;
-import com.mitodevelops.spingame.actors.UserActor;
+import com.mitodevelops.spingame.actors.PlayerActor;
 
 /**
  * Created by seba on 02-10-17.
@@ -16,7 +15,7 @@ public class MainGameScreen extends BaseScreen {
 
     private Stage stage;
     private SpinnerActor spinnerActor;
-    private UserActor userActor;
+    private PlayerActor userActor;
     private ShapeRenderer bar;
     private ShapeRenderer touchArea;
     private float[] backgroundColor = {0.0f, 0.88f, 0.88f, 0.88f};
@@ -36,7 +35,7 @@ public class MainGameScreen extends BaseScreen {
         spinnerActor = new SpinnerActor(bar);
         stage.addActor(spinnerActor);
 
-        userActor = new UserActor(touchArea);
+        userActor = new PlayerActor(touchArea);
         //stage.addActor(userActor);
         inputProcessor = new InputActionsProcessor(stage, userActor, spinnerActor);
 

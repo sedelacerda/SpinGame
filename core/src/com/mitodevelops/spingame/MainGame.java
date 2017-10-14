@@ -1,5 +1,6 @@
 package com.mitodevelops.spingame;
 
+import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
@@ -14,13 +15,19 @@ public class MainGame extends Game {
 	
 	@Override
 	public void create () {
+		if (Gdx.app.getType().equals(Application.ApplicationType.Android)) {
+			Gdx.graphics.setWindowedMode(Gdx.graphics.getWidth(), Gdx.graphics.getWidth());
+		} else {
+			Gdx.graphics.setWindowedMode(540,960);
+		}
 //		batch = new SpriteBatch();
 //		img = new Texture("badlogic.jpg");
 		width = Gdx.graphics.getWidth();
 		height = Gdx.graphics.getHeight();
 		System.out.println("Width = " + width + ", Height = " + height);
 
-		setScreen(new MainGameScreen(this));
+		//setScreen(new MainGameScreen(this));
+		setScreen(new Box2DScreen(this));
 
 //		inputProcessor = new InputActionsProcessor();
 //		Gdx.input.setInputProcessor(inputProcessor);

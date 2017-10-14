@@ -14,13 +14,13 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
  * Created by seba on 11-10-17.
  */
 
-public class UserActor extends Actor {
+public class PlayerActor extends Actor {
 
     private float radius;
     private ShapeRenderer touchArea;
     private Polygon bounds;
 
-    public UserActor(ShapeRenderer touchArea) {
+    public PlayerActor(ShapeRenderer touchArea) {
         this.touchArea = touchArea;
         this.radius = 25;
         this.bounds = new Polygon();
